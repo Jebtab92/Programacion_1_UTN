@@ -11,12 +11,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #define CANT 5
 
 int inicializarInt(int legajo[], int size);
 int inicializarFloat(float array[], int size);
 int inicializarChar(char array[], int size);
+int inicializarMatriz(char array[][20], int size);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -36,12 +38,12 @@ int main(void) {
 	inicializarFloat(nota2, CANT);
 	inicializarFloat(promedio, CANT);
 	inicializarChar(sexo, CANT);
-	inicializarChar(apellido, CANT); // mal
+	inicializarMatriz(apellido, CANT);
 
 
-	for(i=0; i>CANT; i++)
+	for(i=0; i<CANT; i++)
 	{
-		printf("%d", legajo[i]);
+		printf("%s", apellido[i][20]);
 	}
 
 	return 0;
@@ -74,7 +76,19 @@ int inicializarChar(char array[], int size)
 
 	for(i = 0; i < CANT; i++)
 	{
-		array[i] = "";
+		array[i] = ' ';
+	}
+	return 0;
+}
+
+int inicializarMatriz(char array[][20], int size)
+{
+	int i = 0;
+	char aux = ' ';
+
+	for(i=0; i<size;i++)
+	{
+		strcpy(array[i], aux);
 	}
 	return 0;
 }
