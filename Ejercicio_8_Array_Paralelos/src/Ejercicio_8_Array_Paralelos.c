@@ -12,19 +12,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "Ejercicio_8.h"
 
 #define CANT 5
-
-int inicializarInt(int legajo[], int size);
-int inicializarFloat(float array[], int size);
-int inicializarChar(char array[], int size);
-int inicializarMatriz(char array[][20], int size);
-int cargarLegajo(int legajo[], int size);
-int cargarEdad(int edad[], int size);
-int cargarSexo(char array[], int size);
-int cargarNotaUno(float nota[],int size);
-int cargarNotaDos(float nota[],int size);
-int cargarApellido(char array[][20], int size);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -37,7 +27,9 @@ int main(void) {
 	float promedio[CANT];
 	char apellido[CANT][20];
 	int i = 0;
+	int indice = 0;
 
+	// Inicializo los array
 	inicializarInt(legajo, CANT);
 	inicializarInt(edad, CANT);
 	inicializarFloat(nota1, CANT);
@@ -47,105 +39,28 @@ int main(void) {
 	inicializarMatriz(apellido, CANT);
 
 
-	for(i=0; i<CANT; i++)
+	do
 	{
-		printf("%s", apellido[i]);
-	}
+		// Solicito indice a completar
+		printf("\nIngrese numero de orden de alumno para completar --> ");
+		scanf("%d", &indice);
+
+		// Llamo a la funcion para que los carge
+		cargarLegajo(&legajo[indice], CANT);
+		cargarSexo(&sexo[indice], CANT);
+		cargarEdad(&edad[indice], CANT);
+		cargarNotaUno(&nota1[indice], CANT);
+		cargarNotaDos(&nota2[indice], CANT);
+		cargarPromedio(&promedio[indice], nota1[indice], nota2[indice], CANT);
+		cargarApellido(&apellido[indice], CANT);
+
+		i = 5;
+
+	}while(i<5);
+
+
 
 	return 0;
 }
-int inicializarInt(int array[], int size)
-{
-	int i = 0;
-
-	for(i = 0; i < CANT; i++)
-	{
-		array[i] = 0;
-	}
-	return 0;
-}
-
-int inicializarFloat(float array[], int size)
-{
-	int i = 0;
-
-	for(i = 0; i < CANT; i++)
-	{
-		array[i] = 0;
-	}
-	return 0;
-}
-
-int inicializarChar(char array[], int size)
-{
-	int i = 0;
-
-	for(i = 0; i < CANT; i++)
-	{
-		array[i] = ' ';
-	}
-	return 0;
-}
-
-int inicializarMatriz(char array[][20], int size)
-{
-	int i = 0;
-
-	for(i = 0; i < size; i++)
-	{
-		strcpy(array[i], " ");
-	}
-	return 0;
-}
-
-
-
-
-int cargarLegajo(int legajo[], int size)
-{
-		printf("\nIngrese legajo --> ");
-		scanf("%d", legajo);
-	return 0;
-}
-
-int cargarEdad(int edad[], int size)
-{
-	printf("\nIngrese edad --> ");
-	scanf("%d", edad);
-	return 0;
-}
-
-int cargarSexo(char array[], int size)
-{
-	printf("\nIngrese sexo (f-femenino,m-masculino) --> ");
-	scanf("%c", array);
-	return 0;
-}
-
-int cargarNotaUno(float nota[], int size)
-{
-	printf("\nIngrese la nota #1 --> ");
-	scanf("%f", nota);
-	return 0;
-}
-
-int cargarNotaDos(float nota[], int size)
-{
-	printf("\nIngrese la nota #2 --> ");
-	fflush(stdin);
-	scanf("%f", nota);
-	return 0;
-}
-
-int cargarApellido(char array[][20], int size)
-{
-	printf("\nIngrese su apellido");
-	fflush(stdin);
-	scanf("%s", array);
-	return 0;
-}
-
-
-
 
 
