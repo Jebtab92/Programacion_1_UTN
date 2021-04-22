@@ -19,6 +19,12 @@ int inicializarInt(int legajo[], int size);
 int inicializarFloat(float array[], int size);
 int inicializarChar(char array[], int size);
 int inicializarMatriz(char array[][20], int size);
+int cargarLegajo(int legajo[], int size);
+int cargarEdad(int edad[], int size);
+int cargarSexo(char array[], int size);
+int cargarNotaUno(float nota[],int size);
+int cargarNotaDos(float nota[],int size);
+int cargarApellido(char array[][20], int size);
 
 int main(void) {
 	setbuf(stdout, NULL);
@@ -43,7 +49,7 @@ int main(void) {
 
 	for(i=0; i<CANT; i++)
 	{
-		printf("%s", apellido[i][20]);
+		printf("%s", apellido[i]);
 	}
 
 	return 0;
@@ -84,11 +90,62 @@ int inicializarChar(char array[], int size)
 int inicializarMatriz(char array[][20], int size)
 {
 	int i = 0;
-	char aux = ' ';
 
-	for(i=0; i<size;i++)
+	for(i = 0; i < size; i++)
 	{
-		strcpy(array[i], aux);
+		strcpy(array[i], " ");
 	}
 	return 0;
 }
+
+
+
+
+int cargarLegajo(int legajo[], int size)
+{
+		printf("\nIngrese legajo --> ");
+		scanf("%d", legajo);
+	return 0;
+}
+
+int cargarEdad(int edad[], int size)
+{
+	printf("\nIngrese edad --> ");
+	scanf("%d", edad);
+	return 0;
+}
+
+int cargarSexo(char array[], int size)
+{
+	printf("\nIngrese sexo (f-femenino,m-masculino) --> ");
+	scanf("%c", array);
+	return 0;
+}
+
+int cargarNotaUno(float nota[], int size)
+{
+	printf("\nIngrese la nota #1 --> ");
+	scanf("%f", nota);
+	return 0;
+}
+
+int cargarNotaDos(float nota[], int size)
+{
+	printf("\nIngrese la nota #2 --> ");
+	fflush(stdin);
+	scanf("%f", nota);
+	return 0;
+}
+
+int cargarApellido(char array[][20], int size)
+{
+	printf("\nIngrese su apellido");
+	fflush(stdin);
+	scanf("%s", array);
+	return 0;
+}
+
+
+
+
+
