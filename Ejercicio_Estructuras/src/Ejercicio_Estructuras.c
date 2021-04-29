@@ -24,9 +24,55 @@ int main(void)
 	int opcion;
 	alumno arrayAlumnos[CANT];
 
+	inicializarIsEmpty(arrayAlumnos, CANT);
+	do
+	{
+		mostrarMenu(&opcion);
+		switch(opcion)
+		{
+			case 1:
+			{
+				ingresarAlumno(arrayAlumnos, CANT);
+				break;
+			}
+			case 2:
+			{
+				if(bajaAlumno(arrayAlumnos, CANT) == 0)
+				{
+					printf("\nAlumno eliminado");
+				}
+				else
+				{
+					printf("\nNo se encontro el legajo");
+				}
+				break;
+			}
+			case 3:
+			{
+				break;
+			}
+			case 4:
+			{
+				break;
+			}
+			case 5:
+			{
+				break;
+			}
+			case 6:
+			{
+				break;
+			}
+		}
+
+	}while(opcion != 6);
+
+
 
 	inicializarIsEmpty(arrayAlumnos, CANT);
-	//mostrarMenu();
+
+	ingresarAlumno(arrayAlumnos, CANT);
+
 	listarAlumnos(arrayAlumnos, CANT);
 
 

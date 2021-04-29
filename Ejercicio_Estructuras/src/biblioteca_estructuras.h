@@ -21,12 +21,13 @@ typedef struct
 }alumno;
 
 
-int mostrarMenu();
+int mostrarMenu(int* opcion);
 int inicializarIsEmpty(alumno alumnos[], int size);
 int buscarLibre(alumno array[], int size);
+int ingresarAlumno(alumno array[], int size);
 int listarAlumno();
 int listarAlumnos(alumno array[], int size);
-int bajaAlumno();
+int bajaAlumno(alumno array[], int size);
 int modificarAlumno();
 int ordenarAlumno();
 
