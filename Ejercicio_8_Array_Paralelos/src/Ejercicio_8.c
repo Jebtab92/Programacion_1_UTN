@@ -158,8 +158,138 @@ int ordenarLegajo(int legajo[],char sexo[], float nota1[], float nota2[], float 
 	return 0;
 }
 
-int ordenarApellido()
+int ordenarApellido(int legajo[],char sexo[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size)
 {
+	int i = 0;
+	int j, legajoAux;
+	float nota1Aux, nota2Aux, promAux;
+	char sexoAux;
+	char apellidoAux[20];
+
+	for(i = 0; i < size - 1; i++)
+	{
+		for(j = i + 1; j < size; j++)
+		{
+			if(strcmp(apellido[i], apellido[j]) < 0)
+			{
+				// Intercambio legajo
+				legajoAux = legajo[i];
+				legajo[i] = legajo[j];
+				legajo[j] = legajoAux;
+
+				// Intercambio sexo
+				sexoAux = sexo[i];
+				sexo[i] = sexo[j];
+				sexo[j] = sexoAux;
+
+				// Intercambio nota1
+				nota1Aux = nota1[i];
+				nota1[i] = nota1[j];
+				nota1[j] = nota1Aux;
+
+				// Intercambio nota2
+				nota2Aux = nota2[i];
+				nota2[i] = nota2[j];
+				nota2[j] = nota2Aux;
+
+				// Intercambio promedio
+				promAux = promedio[i];
+				promedio[i] = promedio[j];
+				promedio[j] = promAux;
+
+				// Intercambio apellido
+				strcpy(apellidoAux,apellido[i]);
+				strcpy(apellido[i],apellido[j]);
+				strcpy(apellido[j], apellidoAux);
+			}
+		}
+	}
+
+
+	return 0;
+}
+
+int ordenarPromedioLegajo(int legajo[],char sexo[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size)
+{
+	int i = 0;
+	int j, legajoAux;
+	float nota1Aux, nota2Aux, promAux;
+	char sexoAux;
+	char apellidoAux[20];
+
+	for(i = 0; i < size - 1; i++)
+	{
+		for(j = i + 1; j < size; j++)
+		{
+			if(promedio[i] < promedio[j])
+			{
+				// Intercambio legajo
+				legajoAux = legajo[i];
+				legajo[i] = legajo[j];
+				legajo[j] = legajoAux;
+
+				// Intercambio sexo
+				sexoAux = sexo[i];
+				sexo[i] = sexo[j];
+				sexo[j] = sexoAux;
+
+				// Intercambio nota1
+				nota1Aux = nota1[i];
+				nota1[i] = nota1[j];
+				nota1[j] = nota1Aux;
+
+				// Intercambio nota2
+				nota2Aux = nota2[i];
+				nota2[i] = nota2[j];
+				nota2[j] = nota2Aux;
+
+				// Intercambio promedio
+				promAux = promedio[i];
+				promedio[i] = promedio[j];
+				promedio[j] = promAux;
+
+				// Intercambio apellido
+				strcpy(apellidoAux,apellido[i]);
+				strcpy(apellido[i],apellido[j]);
+				strcpy(apellido[j], apellidoAux);
+			}
+			if(promedio[i] == promedio[j])
+			{
+				if(legajo[i] < legajo[j])
+				{
+					// Intercambio legajo
+					legajoAux = legajo[i];
+					legajo[i] = legajo[j];
+					legajo[j] = legajoAux;
+
+					// Intercambio sexo
+					sexoAux = sexo[i];
+					sexo[i] = sexo[j];
+					sexo[j] = sexoAux;
+
+					// Intercambio nota1
+					nota1Aux = nota1[i];
+					nota1[i] = nota1[j];
+					nota1[j] = nota1Aux;
+
+					// Intercambio nota2
+					nota2Aux = nota2[i];
+					nota2[i] = nota2[j];
+					nota2[j] = nota2Aux;
+
+					// Intercambio promedio
+					promAux = promedio[i];
+					promedio[i] = promedio[j];
+					promedio[j] = promAux;
+
+					// Intercambio apellido
+					strcpy(apellidoAux,apellido[i]);
+					strcpy(apellido[i],apellido[j]);
+					strcpy(apellido[j], apellidoAux);
+				}
+			}
+		}
+	}
 	return 0;
 }
 

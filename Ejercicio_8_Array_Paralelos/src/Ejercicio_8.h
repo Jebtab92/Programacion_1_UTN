@@ -20,6 +20,8 @@ int cargarNotaDos(float nota[],int size);
 int cargarPromedio(float promedio[], float nota1, float nota2, int size);
 int cargarApellido(char array[][20], int size);
 int ordenarLegajo(int legajo[],char sexo[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size);
+int ordenarApellido(int legajo[],char sexo[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size);
+int ordenarPromedioLegajo(int legajo[],char sexo[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size);
 int mostrarEstudiante(int legajo, char sexo, int edad, float nota1, float nota2, float promedio, char apellido[][20]);
 int mostrarEstudiantes(int legajo[], char sexo[], int edad[], float nota1[], float nota2[], float promedio[], char apellido[][20], int size);
 
