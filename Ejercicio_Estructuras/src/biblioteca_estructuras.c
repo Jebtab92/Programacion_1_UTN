@@ -63,7 +63,7 @@ int buscarLibre(alumno array[], int size)
 
 	if(array != NULL && size > 0)
 	{
-		for(i = 0; i > size; i++)
+		for(i = 0; i < size; i++)
 		{
 			if(array[i].isEmpty == 1)
 			{
@@ -93,13 +93,17 @@ int ingresarAlumno(alumno array[], int size)
 		scanf("%d", &array[posicion].legajo);
 
 		// Edad
+
 		printf("\nIngrese edad --> ");
 		scanf("%d", &array[posicion].edad);
 
 		// Sexo
-		printf("\nIngrese sexo (f-femenino,m-masculino) --> ");
-		fflush(stdin);
-		scanf("%c", &array[posicion].sexo);
+		do
+		{
+			printf("\nIngrese sexo (f-femenino,m-masculino) --> ");
+			fflush(stdin);
+			scanf("%c", &array[posicion].sexo);
+		}while(array[posicion].sexo != 'f' || array[posicion].sexo !='m');
 
 		// Nota1
 		printf("\nIngrese la nota #1 --> ");
@@ -137,9 +141,16 @@ int ingresarAlumno(alumno array[], int size)
  *\param
  *\return
  */
-int listarAlumno(alumno array[])
+int listarAlumno(int legajo, char sexo, int edad, float nota1, float nota2, char* apellido)
 {
-	//printf("%d",array[].isEmpty);
+	printf("\n%d\t%c\t%d\t%.2f\t%.2f\t%.2f\t%s\n",
+							legajo,
+							sexo,
+							edad,
+							nota1,
+							nota2,
+							apellido
+							);
 	return 0;
 }
 
@@ -150,13 +161,22 @@ int listarAlumno(alumno array[])
 int listarAlumnos(alumno array[], int size)
 {
 	int i = 0;
-	for(i = 0; i < size; i++)
+	if(array != NULL && size > 0)
 	{
-		if(array[i].isEmpty == 0)
+		printf("\nLegajo\tSexo\tEdad\tNota1\tNota2\tPromedio\tApellido\n");
+		for(i = 0; i < size; i++)
 		{
-			printf("%d", array[i].isEmpty);
-		}
+			if(array[i].isEmpty == 0)
+			{
+				listarAlumno(array[i].legajo,
+							array[i].sexo,
+							array[i].edad,
+							array[i].nota1,
+							array[i].nota2,
+							array[i].apellido);
+			}
 
+		}
 	}
 	return 0;
 }
@@ -180,6 +200,7 @@ int bajaAlumno(alumno array[], int size)
 		{
 			if(auxEliminar == array[i].legajo)
 			{
+				// Falta mostrar el alumno a eliminar
 				array[i].isEmpty = 1;
 				retorno = 0;
 			}
@@ -216,6 +237,19 @@ int ordenarAlumno(alumno array[], int size)
 
 	}
 	return 0;
+}
+int buscarLegajo(alumno array[], int size)
+{
+
+	int retorno = -1;
+	if(array != NULL && size > 0)
+	{
+		printf("\nIngrese Legajo\n");
+		scanf("%d", &*auxLegajo);
+		retorno = 0;
+	}
+
+	return retorno;
 }
 
 

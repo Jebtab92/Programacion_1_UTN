@@ -25,7 +25,7 @@ int mostrarMenu(int* opcion);
 int inicializarIsEmpty(alumno alumnos[], int size);
 int buscarLibre(alumno array[], int size);
 int ingresarAlumno(alumno array[], int size);
-int listarAlumno();
+int listarAlumno(int legajo, char sexo, int edad, float nota1, float nota2, char* apellido);
 int listarAlumnos(alumno array[], int size);
 int bajaAlumno(alumno array[], int size);
 int modificarAlumno();

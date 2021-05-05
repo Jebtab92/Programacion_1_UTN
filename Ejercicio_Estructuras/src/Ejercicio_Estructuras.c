@@ -53,6 +53,7 @@ int main(void)
 			}
 			case 4:
 			{
+				listarAlumnos(arrayAlumnos, CANT);
 				break;
 			}
 			case 5:
@@ -61,21 +62,12 @@ int main(void)
 			}
 			case 6:
 			{
+				printf("--Nos vemos--");
 				break;
 			}
 		}
 
 	}while(opcion != 6);
-
-
-
-	inicializarIsEmpty(arrayAlumnos, CANT);
-
-	ingresarAlumno(arrayAlumnos, CANT);
-
-	listarAlumnos(arrayAlumnos, CANT);
-
-
 
 	return 0;
 }
