@@ -14,12 +14,21 @@
 #include <ctype.h>
 #include "biblioteca_estructuras.h"
 
-#define CANT 5
+#define CANT 3
 
 
 
 int main(void)
 {
+
+	// Poner valores fijos a una estructura ---------------------------------------------------------
+	Carrera arrayCarrera[CANT]={{1,"TSP",0},{2,"TSAS",0},{3,"TSD",0}};
+
+	// Al momento de pedir la carrera hay que mostrar el contenido de la estructura carrera y validar lo que ingrese----------------------
+
+
+
+
 	setbuf(stdout, NULL);
 	int opcion;
 	alumno arrayAlumnos[CANT];

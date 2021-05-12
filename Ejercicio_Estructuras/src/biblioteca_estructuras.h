@@ -13,12 +13,20 @@ typedef struct
 	int legajo;
 	char sexo;
 	int edad;
+	int idCarrera;
 	float nota1;
 	float nota2;
 	float promedio;
 	char apellido[20];
 	int isEmpty;
 }alumno;
+
+typedef struct
+{
+	int idCarrera;
+	char descripcionCarrera[50];
+	int isEmpty;
+}Carrera;
 
 
 int mostrarMenu(int* opcion);

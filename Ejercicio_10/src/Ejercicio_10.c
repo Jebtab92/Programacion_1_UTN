@@ -18,6 +18,7 @@ typedef struct
 {
 	char calle[50];
 	int numero;
+	char localidad[20];
 	int isEmpty;
 }eDireccion;
 
@@ -38,11 +39,17 @@ typedef struct
 	int isEmpty;
 }Proveedor;
 
+
+
+
+
+
 // Dueño Mascota
 typedef struct
 {
 	int idRaza;
-	char Nombre[20];
+	char nombreRaza[20];
+	int isEmpty;
 }eRaza;
 
 typedef struct
@@ -51,6 +58,7 @@ typedef struct
 	char nombre[20];
 	int edad;
 	char sexo;
+	int isEmpty;
 }Owner;
 
 typedef struct
@@ -60,7 +68,16 @@ typedef struct
 	char nombre[20];
 	eRaza raza;
 	char sexo;
+	int isEmpty;
 }Mascota;
+
+
+
+
+
+
+
+
 
 // Alumno Localidad
 typedef struct
@@ -68,6 +85,7 @@ typedef struct
 	int idAlumno;
 	char nombre[20];
 	int idLocalidad; // Foreign Key
+	int isEmpty;
 }Alumno;
 
 typedef struct
@@ -75,6 +93,7 @@ typedef struct
 	int idLocalidad;
 	char descripcion[20];
 	int codigoPostal;
+	int isEmpty;
 }Localidad;
 
 
