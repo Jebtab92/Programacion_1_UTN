@@ -167,28 +167,24 @@ int Validate_Cuit(char *pData)
 
 	if(pData!=NULL)
 	{
-		for(i=0;pData[i]!='\0';i++)
+		for(i=0; i < strlen(pData);i++)
 		{
-			if(isdigit(pData[i])!=0)
+			if(isdigit(pData[i]) != 0)
 			{
 				contadorDigito++;
 			}
-			else
+			if(pData[i] == '-')
 			{
-				if(pData[i]=='-')
-				{
-					contadorGuion++;
-				}
-				else
-				{
-					rtn=-1;
-					break;
-				}
+				contadorGuion++;
 			}
 		}
-		if(contadorDigito==11 && contadorGuion==2)
+		if(contadorDigito == 11 && contadorGuion == 2)
 		{
-			rtn=0;
+			rtn = 1;
+		}
+		else
+		{
+			rtn = 0;
 		}
 	}
 	return rtn;
@@ -210,6 +206,7 @@ int Get_Int(char *MSJ, char *ERROR_MSJ)
 		fflush(stdin);
 		gets(buffer);
 	}
+
 	rtn = atoi(buffer);
 	return rtn;
 }
@@ -404,7 +401,7 @@ void Get_Cuil(char *MSJ, char *ERROR_MSJ, char *pString, int size)
 		}
 		else
 		{
-			printf("Error, solo caracteres alfabeticos validos \n");
+			printf("Error, solo formato [XX-XXXXXXXX-X] \n");
 		}
 
 		printf("%s", ERROR_MSJ);
@@ -414,6 +411,23 @@ void Get_Cuil(char *MSJ, char *ERROR_MSJ, char *pString, int size)
 
 	strcpy(pString, buffer);
 
+}
+void Get_DNI(char *MSJ, char *ERROR_MSJ, char *pString, int size)
+{
+	char buffer[SIZE_BUFFER];
+
+	printf("%s", MSJ);
+	fflush(stdin);
+	gets(buffer);
+
+	while(strlen(buffer) > 8 || strlen(buffer) < 7 || Validate_OnlyNumberInt(buffer) == 0)
+	{
+		printf("%s", ERROR_MSJ);
+		fflush(stdin);
+		gets(buffer);
+	}
+
+	strcpy(pString, buffer);
 }
 
 // Utilidades
@@ -571,15 +585,5 @@ void Format_NameLastname(char *pName, char *pLastname, char *pFormatName)
 }
 void Menu(void)
 {
-	printf("--Menu Principal--\n"
-			"1- Alta de pantalla\n"
-			"2- Modificar datos de pantalla\n"
-			"3- Baja de pantalla\n"
-			"4- Contratar una publicidad\n"
-			"5- Modificar condiciones de publicacion\n"
-			"6- Cancelar contratacion\n"
-			"7- Consulta facturacion\n"
-			"8- Listar contrataciones\n"
-			"9- Listar pantallas\n"
-			"10- Informar\n");
+	// Imprimir menu
 }

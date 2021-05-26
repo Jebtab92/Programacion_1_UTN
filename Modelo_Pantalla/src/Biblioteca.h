@@ -38,6 +38,7 @@ void Get_String(char *MSJ, char *ERROR_MSJ, char *pString, int size);
 void Get_OnlyAlphabetString(char *MSJ, char *ERROR_MSJ, char *pString, int size);
 void Get_OnlyAlphabetStringWithSpaces(char *MSJ, char *ERROR_MSJ, char *pString, int size);
 void Get_Cuil(char *MSJ, char *ERROR_MSJ, char *pString, int size);
+void Get_DNI(char *MSJ, char *ERROR_MSJ, char *pString, int size);
 
 // Utilidades
 void ArrayPrint_Int(int *pArray, int size);
